@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensor Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Sensor Data Dashboard</h1>
+        <div class="cards">
+            <div class="card" style="background-color: #4CAF50;">
+                <h2>Temperature</h2>
+                <p>{{ data.temperature }} °C</p>
+            </div>
+            <div class="card" style="background-color: #2196F3;">
+                <h2>Humidity</h2>
+                <p>{{ data.humidity }} %</p>
+            </div>
+            <div class="card" style="background-color: #FF9800;">
+                <h2>Motion Detected</h2>
+                <p>{{ "Yes" if data.motionDetected == 1 else "No" }}</p>
+            </div>
+        </div>
+        
+        <!-- Add the image below the cards -->
+        <div class="image-container">
+            <img src="{{ url_for('static', filename='graph.jpg') }}" alt="Graph" class="graph">
+        </div>
+    </div>
+</body>
+</html>
